@@ -21,14 +21,12 @@ public class TravelPlanService implements CrudService<TravelPlan,Long> {
 		return travelplanRepository.listAll();
 	}
 	
+	
 	public double total(List<TravelPlan> list) {
 		double total=0;
-		for (TravelPlan travelPlan : list) {
-			
-			total+=travelPlan.getUnitPrice();
-			
-		}
-		
+		for (TravelPlan travelPlan : list) {			
+			total+=travelPlan.getUnitPrice();			
+		}		
 		return total ;
 	}
 	
