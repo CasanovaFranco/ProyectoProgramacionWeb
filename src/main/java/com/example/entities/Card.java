@@ -18,12 +18,10 @@ public class Card {
 	private String owner;
 	private String expiration;
 	
-	
 	public Card() {
 		super();
 	}
 
-	
 	public Card(Long id, String number, String cvv, String owner, String expiration) {
 		super();
 		this.id = id;
@@ -32,7 +30,6 @@ public class Card {
 		this.owner = owner;
 		this.expiration = expiration;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -83,8 +80,5 @@ public class Card {
 		this.expiration = expiration;
 	}
 
-	
-
-	
 }
 	
