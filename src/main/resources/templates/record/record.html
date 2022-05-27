@@ -1,0 +1,74 @@
+	<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<th:block th:include="fragments/head"></th:block>
+<link rel="stylesheet" th:href="@{/record-insert.css}">
+<body>
+    <th:block th:include="fragments/navbar"></th:block>
+    <th:block th:include="fragments/scripts"></th:block>
+    
+    <div id="main-container">
+       <h4 style="text-align:center; font-family: 'Faustina';padding-top: 2rem; padding-bottom: 2rem;">Formas de pago</h4> 
+       <h1 class="historial-pagos">Mi historial de pagos</h1> <br>  
+       <div th:each="card:${cards}" class="eliminar">
+           <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <div id="photo"><img src="/imagen/visa.png" width="100" heigh	t="50"></div>
+                    <p th:text= "'------------'+${card.number}" class="card-text">---9876541</p>
+                    <a th:onclick="'javascript:abriruno(\''+${card.id}+'\');'" class="btn btn-outline-dark">Eliminar</a>
+                    <a th:href="@{'/card/update/'+${card.id}}"  class="btn btn-outline-primary">Modificar</a>
+                </div>
+            </div>
+        </div>
+        
+      <br><br>
+
+      <div class="aniadir">
+          <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <div id="photo"><img th:src="@{/imagen/agregar.png}" width="50" height="50"></div> 
+                <a th:href="@{/card/insert}" class="btn btn-outline-secondary">Añadir Tarjeta</a>
+            </div>
+        </div>
+    </div>
+
+      <br><br><br><br><br>
+
+      <h1 class="historial-pagos">Mi historial de pagos</h1> 
+        <h4 class="durante">Durante el ultimo semetre</h4> 
+        <table class="table table-borderless">
+           
+            <thead>
+              <tr>
+                
+                <th class="table-dark" scope="col">Detalle pago</th>
+                <th class="table-dark" scope="col">Precio Gastado</th>
+                <th class="table-dark" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  th:each="travelPlan:${travelPlans}">
+              
+                <td th:text="${travelPlan.name}">Paquete de viaje lunahana</td>
+                <td style="color: red;" th:text="'S/ '+${#numbers.formatDecimal(travelPlan.unitPrice,3,2,'COMMA')}">170</td>
+                <td><form > <a  th:onclick="'javascript:abrir(\''+${travelPlan.id}+'\');'" class="fa-solid fa-trash-arrow-up"></a> </form></td>
+                
+              </tr>
+              <tr>
+               <td type="hidden"></td>
+                <td th:if="${!travelPlans.isEmpty()}" style="color: red;" th:text="'S/ '+${#numbers.formatDecimal(total,3,2,'COMMA')}">total</td>
+               <td th:unless="${!travelPlans.isEmpty()}" style="color: red;">No hay datos</td>
+             
+              
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+
+    
+
+
+
+</body>
+</html>

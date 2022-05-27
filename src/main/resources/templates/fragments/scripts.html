@@ -1,0 +1,61 @@
+<script>
+    const btn = document.querySelector('#menu-btn');
+    const menu = document.querySelector('#sidemenu');
+
+    btn.addEventListener('click', e =>{
+        menu.classList.toggle("menu-expanded");
+        menu.classList.toggle("menu-collapsed");
+
+        document.querySelector('body').classList.toggle('body-expanded');
+    });
+
+
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<meta charset="UTF-8">
+<script>
+
+function abrir(id) {
+
+	Swal.fire({
+		  title: '¿Deseas eliminarlo?',
+		  text: "No vas a poder revertir esta accion!",
+		  icon: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Sí, eliminalo!'
+		}).then((result) => {
+		  if (result.isConfirmed) {
+			  
+			
+			  window.location = "/travelplan/delete/"+id
+		  }
+		})
+	
+
+}
+
+function abriruno(id) {
+
+	Swal.fire({
+		  title: '¿Deseas eliminarlo?',
+		  text: "No vas a poder revertir esta accion!",
+		  icon: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Sí, eliminalo!'
+		}).then((result) => {
+		  if (result.isConfirmed) {
+			  
+			
+			  window.location = "/card/delete/"+id
+		  }
+		})
+	
+
+}	
+
+
+</script>
