@@ -17,8 +17,10 @@ public interface CardRepository extends JpaRepository <Card,Long> {
 @Query(value="Select * from cards", nativeQuery=true)
 List<Card>listAll();
 
+
 @Query(value="Select * from cards where cvv=?1", nativeQuery=true)
 Card findByCvv(String cvv );
+
 
 }
 
