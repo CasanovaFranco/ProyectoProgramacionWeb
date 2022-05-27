@@ -3,9 +3,10 @@
 <meta charset="UTF-8">
 <th:block th:include="fragments/head"></th:block>
 <link rel="stylesheet" th:href="@{/record-insert.css}">
+
 <body>
 	<th:block th:include="fragments/navbar"></th:block>
-   <th:block th:include="fragments/scripts"></th:block>
+    <th:block th:include="fragments/scripts"></th:block>
    
     <div id="main-container">
        <h4 style="text-align:center; font-family: 'Faustina';padding-top: 2rem; padding-bottom: 2rem;">Añadir metodo de pago</h4> 
@@ -13,10 +14,10 @@
        <form th:action="@{'/card/'+${aux}+'/new'}" th:object="${newCard}">
         <label for="inputname3" class="col-sm-2 col-form-label">Detalle tarjeta</label>
         <div class="row mb-3">
+        
           <label for="inputname3" class="col-sm-2 col-form-label">Nombre de dueño: </label>
-          <div class="col-sm-10">
-           <input type="hidden" th:if="${aux==update}"  th:field="*{id}" class="form-control"  id="inputname3">
-          
+          <div class="col-sm-10">         
+           <input type="hidden" th:if="${aux==update}"  th:field="*{id}" class="form-control"  id="inputname3">        
             <input type="text" th:field="*{owner}" class="form-control" id="inputname3">
           </div>
         </div>
@@ -42,16 +43,13 @@
             </div>
         </div>
           
-
-
         <div style="display: flex; justify-content: end;" class="btn-group" role="group" aria-label="Basic example">
             <div>
                 <a th:href="@{/card}"  type="button" class="btn btn-outline-secondary">Cancelar</a>        
             </div>
-            
             <div>
                 <button type="submit" th:text="${textButton}" class="btn btn-outline-danger">Añadir</button>
-            </div>
+            </div>            
         </div>
        
       </form>
