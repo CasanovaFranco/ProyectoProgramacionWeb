@@ -17,10 +17,10 @@ public class TravelPlanService implements CrudService<TravelPlan,Long> {
 	public JpaRepository<TravelPlan, Long> getJpaRepository() {
 		return travelplanRepository;
 	}
+	
 	public List<TravelPlan> listAll() {
 		return travelplanRepository.listAll();
 	}
-	
 	
 	public double total(List<TravelPlan> list) {
 		double total=0;
